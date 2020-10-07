@@ -10,15 +10,28 @@ include 'db.php';
 	<head>
 		<meta charset="utf-8">
 		<title>ajax-dischi</title>
+		<link rel="stylesheet" href="dist\app.css">
 	</head>
 	<body>
+		<header>
+
+		</header>
+		<main>
+
+		</main>
 		<ul class="item__list">
 			<?php foreach ($database as $k => $album) {	?>
 				<li class="item__album">
-					<?php echo $album['title']; ?>
-					<?php echo $album['author']; ?>
-					<?php echo $album['year']; ?>
-				<img src="<?php echo $album['poster']; ?>" alt="#">	
+					<img src="<?php echo $album['poster']; ?>" alt="#">
+					<h4 class="title">
+						<?php echo $album['title']; ?>
+					</h4>
+					<span class="author">
+						<?php echo $album['author']; ?>
+					</span>
+					<span class="year">
+						<?php echo $album['year']; ?>
+					</span>
 				</li>
 			<?php } ?>
 
