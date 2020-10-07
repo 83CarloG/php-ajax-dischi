@@ -1,3 +1,6 @@
-h4 {
-	color: red;
-}
+@import 'Partials/_variables.scss';
+@import 'Partials/_mixins.scss';
+@import 'Partials/_common.scss';
+// Header
+@import 'Partials/_header.scss';
+@import 'Partials/_main.scss';

@@ -1,0 +1,38 @@
+.main {
+	margin-top: 50px;
+}
+.item {
+
+&__list {
+	@include my-display-flex(row, center, center);
+	flex-flow: wrap;
+	list-style: none;
+	padding: 0 20px;
+}
+&__album {
+	height: 450px;
+	@include my-display-flex(column, flex-start, center);
+  flex-basis: calc(25% - 40px);
+  padding: 30px 20px 20px 30px;
+	background-color: $secondaryBg;
+	margin: 20px;
+}
+&__img {
+	width: 200px;
+	height: 200px;
+}
+&__title {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	padding-top: 20px;
+	color: #fff;
+}
+&__author {
+	padding-top: 20px;
+	color: $textcolor;
+}
+&__year {
+	color: $textcolor;
+}
+}
