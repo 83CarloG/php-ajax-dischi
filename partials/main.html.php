@@ -1,6 +1,8 @@
 
 	<main class="main">
 		<div class="container">
+			<label for="artista_serch"></label>
+			<input class="input" type="text"><div class="search">search</div>
 			<ul class="item__list">
 
 			</ul>

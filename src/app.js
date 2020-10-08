@@ -2,16 +2,25 @@ const $ = require('jquery');
 const Handlebars = require('handlebars');
 
 $(document).ready(function	() {
-	$.ajax({
-		url: 'api/api.php',
-		type: 'GET',
-		success: function (data)	{
-			render(data);
-		},
-		error: function (err)	{
-			alert('errore' + err);
-		}
+
+	$('.search').click(function	() {
+		var artista = $('input').val();
+		$.ajax({
+			url: 'api/api_show.php',
+			type: 'GET',
+			data: {
+				query: artista
+			},
+			success: function (data)	{
+				$('.item__list').children('li').remove();
+				render(data);
+			},
+			error: function (err)	{
+				alert('errore' + err);
+			}
+		});
 	});
+	callApi();
 });
 
 function render (result)	{
@@ -22,4 +31,16 @@ function render (result)	{
 		var html = template(result[i]);
 		$('.item__list').append(html);
 	}
+}
+function callApi	()	{
+	$.ajax({
+		url: 'api/api.php',
+		type: 'GET',
+		success: function (data)	{
+			render(data);
+		},
+		error: function (err)	{
+			alert('errore' + err);
+		}
+	});
 }
