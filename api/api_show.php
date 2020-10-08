@@ -7,6 +7,7 @@ header('Content-Type: application/json');
 
 //Prendo la ns ricerca 'query' GET variable.
 $query = isset($_GET['query']) && strlen($_GET['query']) ? trim($_GET['query']) : '';
+$tipo = isset($_GET['tipo']) && strlen($_GET['tipo']) ? trim($_GET['tipo']) : '';
 
 // Preparo un array di risultati
 $results = [];
@@ -14,7 +15,7 @@ $results = [];
 if ($query !== '') {
 	//Loop tra gli oggetti della ricerca dell'album
 	foreach($database as $album){
-		if(stristr($album['author'], $query)){
+		if(stristr($album[$tipo], $query)){
 		       $results[] = $album;
 		   }
 			}

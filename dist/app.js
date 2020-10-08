@@ -16092,25 +16092,9 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  $('.search').click(function () {
-    var artista = $('input').val();
-    $.ajax({
-      url: 'api/api_show.php',
-      type: 'GET',
-      data: {
-        query: artista
-      },
-      success: function success(data) {
-        $('.item__list').children('li').remove();
-        render(data);
-      },
-      error: function error(err) {
-        alert('errore' + err);
-      }
-    });
-  });
   callApi();
-});
+  showApi();
+}); //  Render
 
 function render(result) {
   for (var i = 0; i < result.length; i++) {
@@ -16121,6 +16105,18 @@ function render(result) {
   }
 }
 
+function renderNofound(result) {
+  reset();
+  var source = $('#nofound-template').html();
+  var template = Handlebars.compile(source);
+  var context = {
+    testo: 'Nesun album trovato..'
+  };
+  var html = template(context);
+  $('.item__list').append(html);
+} //  Funzioni ajax
+
+
 function callApi() {
   $.ajax({
     url: 'api/api.php',
@@ -16129,9 +16125,42 @@ function callApi() {
       render(data);
     },
     error: function error(err) {
-      alert('errore' + err);
+      console.log('errore' + err);
     }
   });
+}
+
+function showApi() {
+  $('.search').on('click', function () {
+    var tipo = $('.select-serch').val();
+    var input = $('input').val();
+    $.ajax({
+      url: 'api/api_show.php',
+      type: 'GET',
+      data: {
+        tipo: tipo,
+        query: input
+      },
+      success: function success(data) {
+        console.log(data);
+        reset();
+
+        if (data.length !== 0) {
+          render(data);
+        } else {
+          renderNofound();
+        }
+      },
+      error: function error(err) {
+        console.log('errore' + err);
+      }
+    });
+  });
+} // Mix
+
+
+function reset() {
+  $('.item__list').children('li').remove();
 }
 
 /***/ }),

@@ -1,8 +1,15 @@
 
 	<main class="main">
 		<div class="container">
-			<label for="artista_serch"></label>
-			<input class="input" type="text"><div class="search">search</div>
+			<div class="search-bar">
+				<input class="input" type="text">
+				<div class="search">cerca</div>
+				<select class="select-serch" name="tipo">
+					<option value="title">titolo</option>
+					<option value="author">autore</option>
+					<option value="year">anno</option>
+				</select>
+			</div>
 			<ul class="item__list">
 
 			</ul>

@@ -55,7 +55,7 @@ html {
   justify-content: flex-start;
   align-items: center;
   flex-basis: calc(25% - 40px);
-  padding: 30px 20px 20px 30px;
+  padding: 30px 20px 20px 20px;
   background-color: #2e3a46;
   margin: 20px;
 }
@@ -76,4 +76,27 @@ html {
 }
 .item__year {
   color: #77787a;
+}
+
+.search-bar {
+  height: 50px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 3px solid #8DC100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.search-bar .search {
+  width: 70px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.search-bar .search:hover {
+  background-color: #fff;
+  border: 1px solid #1e2d3b;
+  color: #1e2d3b;
 }

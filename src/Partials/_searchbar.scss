@@ -1,0 +1,19 @@
+.search-bar {
+	height: 50px;
+	max-width: 400px;
+	margin: 0 auto;
+	border: 3px solid #8DC100;
+	@include my-display-flex(row, space-around, center);
+	.search {
+		width: 70px;
+		border: 1px solid #fff;
+		color: #fff;
+		text-align: center;
+		cursor: pointer;
+	}
+	.search:hover {
+		background-color: #fff;
+		border: 1px solid $primaryBg;
+		color: $primaryBg;
+	}
+}
