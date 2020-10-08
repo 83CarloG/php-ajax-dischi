@@ -6,16 +6,21 @@ header('Content-Type: application/json');
 // echo json_encode($database);
 
 //Prendo la ns ricerca 'query' GET variable.
-$query = trim($_GET['query']);
+$query = isset($_GET['query']) && strlen($_GET['query']) ? trim($_GET['query']) : '';
 
 // Preparo un array di risultati
 $results = [];
 
-//Loop tra gli oggetti della ricerca
-foreach($database as $album){
-	if(stristr($album['author'], $query)){
-	       $results[] = $album;
-	   }
+if ($query !== '') {
+	//Loop tra gli oggetti della ricerca dell'album
+	foreach($database as $album){
+		if(stristr($album['author'], $query)){
+		       $results[] = $album;
+		   }
+			}
+}
+else {
+	$results = $database;
 }
 //Display the results in JSON format so that
 //we can parse it with JavaScript.
