@@ -20,5 +20,9 @@
     "sass": "^1.26.12",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.6",
+    "jquery": "^3.5.1"
   }
 }
